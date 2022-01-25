@@ -14,4 +14,11 @@ resource "aws_s3_bucket" "log_bucket" {
     Demo = "log-delivery-write"
     Version = "12"
   }
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "aws:kms"
+      }
+    }
+  }
 }
